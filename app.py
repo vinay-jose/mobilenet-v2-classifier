@@ -4,6 +4,13 @@ from fastai.vision.all import *
 from PIL import Image
 import io
 
+style = Style("""
+    body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; max-width: 800px; margin: 0 auto; padding: 20px; }
+    h2 { color: #2c3e50; }
+    img { height: 10%; width: 20%; }
+    .image-box { display: flex; }
+"""),
+
 app, rt = fast_app()
 learn = load_learner("model.pkl")
 
@@ -16,18 +23,18 @@ def classify_image(img):
 @rt('/')
 def index():
     return Titled("Chair vs Lamp Classifier",
-        Div(
-            H2("Example Images"),
-            Div(
-                Img(src="chair1.jpg", hx_trigger="click", hx_get="/classify", hx_target="#result", height=20%, width=10%),
-                Img(src="chair2.jpg", hx_trigger="click", hx_get="/classify", hx_target="#result"),
-                Img(src="lamp1.jpg", hx_trigger="click", hx_get="/classify", hx_target="#result"),
-                Img(src="lamp2.jpg", hx_trigger="click", hx_get="/classify", hx_target="#result"),
-                cls="flex flex-wrap justify-center gap-4"
-            ),
+        Body(
             H2("Upload an Image"),
             Button("Upload Image", hx_post="/upload", hx_target="#result"),
             Div(id="result")
+            H2("Test Images"),
+            Div(
+                Img(src="chair1.jpg", hx_trigger="click", hx_get="/classify", hx_target="#result"),
+                Img(src="chair2.jpg", hx_trigger="click", hx_get="/classify", hx_target="#result"),
+                Img(src="lamp1.jpg", hx_trigger="click", hx_get="/classify", hx_target="#result"),
+                Img(src="lamp2.jpg", hx_trigger="click", hx_get="/classify", hx_target="#result"),
+                cls="image-box"
+            ),
         )
     )
 
