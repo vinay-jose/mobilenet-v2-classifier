@@ -23,21 +23,21 @@ def classify_image(img):
 
 @rt('/')
 def index():
-    return Titled("Chair vs Lamp Classifier",
-        Body(
+    return Title("Chair vs Lamp Classifier"),
+        Main(
             H2("Upload an Image"),
             Button("Upload Image", hx_post="/upload", hx_target="#result"),
             Div(id="result"),
             H2("Test Images"),
             Div(
-                Img(src="/chair1.jpg", hx_trigger="click", hx_get="/classify", hx_target="#result"),
-                Img(src="/chair2.jpg", hx_trigger="click", hx_get="/classify", hx_target="#result"),
-                Img(src="/lamp1.jpg", hx_trigger="click", hx_get="/classify", hx_target="#result"),
-                Img(src="/lamp2.jpg", hx_trigger="click", hx_get="/classify", hx_target="#result"),
+                Img(src="chair1.jpg", hx_trigger="click", hx_get="/classify", hx_target="#result"),
+                Img(src="chair2.jpg", hx_trigger="click", hx_get="/classify", hx_target="#result"),
+                Img(src="lamp1.jpg", hx_trigger="click", hx_get="/classify", hx_target="#result"),
+                Img(src="lamp2.jpg", hx_trigger="click", hx_get="/classify", hx_target="#result"),
                 cls="image-box"
             )
         )
-    )
+    
 
 @rt('/classify')
 def classify(img_file: UploadFile):
