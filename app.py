@@ -35,7 +35,7 @@ def index():
                 Img(src="/lamp1.jpg", hx_trigger="click", hx_get="/classify", hx_target="#result"),
                 Img(src="/lamp2.jpg", hx_trigger="click", hx_get="/classify", hx_target="#result"),
                 cls="image-box"
-            ),
+            )
         )
     )
 
