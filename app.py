@@ -7,7 +7,7 @@ import io
 style = Style("""
     body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; max-width: 800px; margin: 0 auto; padding: 20px; }
     h2 { color: #2c3e50; }
-    img { height: 10%; width: 20%; }
+    img { height: 100px; width: auto; }
     .image-box { display: flex; }
 """),
 
