@@ -11,7 +11,8 @@ style = Style("""
     .image-box { display: flex; }
 """),
 
-app, rt = fast_app()
+app = FastHTML(hdrs=(style))
+rt = app.route
 learn = load_learner("model.pkl")
 
 def classify_image(img):
