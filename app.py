@@ -27,7 +27,7 @@ def index():
         Body(
             H2("Upload an Image"),
             Button("Upload Image", hx_post="/upload", hx_target="#result"),
-            Div(id="result")
+            Div(id="result"),
             H2("Test Images"),
             Div(
                 Img(src="chair1.jpg", hx_trigger="click", hx_get="/classify", hx_target="#result"),
