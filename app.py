@@ -24,7 +24,14 @@ def classify_image(img):
 @rt('/')
 def index():
     return Title("Chair vs Lamp Classifier"), Main( H2("Upload an Image"),
-                                                    Button("Upload Image", hx_post="/upload", hx_target="#result"),
+                                                    Form(
+                                                        Input(type="file", name="img_file", accept="image/*", required=True),
+                                                        Button("Classify"),
+                                                        enctype="multipart/form-data",
+                                                        hx_post="/upload",
+                                                        hx_target="#result"
+                                                    ),
+                                                    Br(),
                                                     Div(id="result"),
                                                     H2("Test Images"),
                                                     Div(
@@ -48,7 +55,7 @@ def classify(img_file: UploadFile):
     
 @rt('/upload', methods=['POST'])
 def upload(img_file: UploadFile):
-    img_bytes = img_file.files['image'].read()
+    img_bytes = img_file.read()
     img = Image.open(io.BytesIO(img_bytes))
     
     name, idx, probs = classify_image(img)    
