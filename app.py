@@ -42,14 +42,14 @@ def index():
                 Div(id="result"),
                 H2("Test Images"),
                 Div(
-                    Img(src="static/chair1.jpg", hx_trigger="click", hx_get="/classify", 
-                        hx_target="#result", hx_vals='{"image_path": "static/chair1.jpg"}'),
-                    Img(src="static/chair2.jpg", hx_trigger="click", hx_get="/classify", 
-                        hx_target="#result", hx_vals='{"image_path": "static/chair2.jpg"}'),
-                    Img(src="static/lamp1.jpg", hx_trigger="click", hx_get="/classify", 
-                        hx_target="#result", hx_vals='{"image_path": "static/lamp1.jpg"}'),
-                    Img(src="static/lamp2.jpg", hx_trigger="click", hx_get="/classify", 
-                        hx_target="#result", hx_vals='{"image_path": "static/lamp2.jpg"}'),
+                    Img(src="chair1.jpg", hx_trigger="click", hx_get="/classify", 
+                        hx_target="#result", hx_vals='{"image_path": "chair1.jpg"}'),
+                    Img(src="chair2.jpg", hx_trigger="click", hx_get="/classify", 
+                        hx_target="#result", hx_vals='{"image_path": "chair2.jpg"}'),
+                    Img(src="lamp1.jpg", hx_trigger="click", hx_get="/classify", 
+                        hx_target="#result", hx_vals='{"image_path": "lamp1.jpg"}'),
+                    Img(src="lamp2.jpg", hx_trigger="click", hx_get="/classify", 
+                        hx_target="#result", hx_vals='{"image_path": "lamp2.jpg"}'),
                     cls="image-box"
                 )
             ))
