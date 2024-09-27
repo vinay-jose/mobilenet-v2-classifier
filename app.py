@@ -13,8 +13,7 @@ style = Style("""
 # Ensure the uploads directory exists
 os.makedirs("uploads", exist_ok=True)
 
-app = FastHTML(hdrs=(style), )
-rt = app.route
+app, rt = fast_app(hdrs=(style), )
 
 plt = platform.system()
 if plt == 'Windows': pathlib.PosixPath = pathlib.WindowsPath
